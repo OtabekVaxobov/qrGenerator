@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
 export default function Home() {
@@ -108,6 +109,9 @@ export default function Home() {
             Instantly deploy your Next.js site to a shareable URL with Vercel.
           </p>
         </a>
+        <Link href={"/slug"}>
+          go to slug
+        </Link>
       </div>
     </main>
   )
