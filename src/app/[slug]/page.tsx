@@ -1,20 +1,23 @@
 'use client'
 
-import { usePathname, useRouter  } from 'next/navigation'
+import { usePathname, useSearchParams } from 'next/navigation'
 import { useQRCode } from 'next-qrcode';
 import Image from 'next/image'
 
  export default function Page (){
-  const router = usePathname ()
+
+  const routerName = usePathname ()
   const { SVG } = useQRCode();
   return (
+    
     <div className='flex justify-center pl-28 pt-36'>
       
     <Image priority src={'/sert.jpeg'} alt={'sert'} width={900} height={900}/>
-  <h2 className='relative right-[780px] top-[340px]'>{router.slice(1,router.length)}</h2>
     <div className='relative right-[200px] top-[60px]'>
+    <h2 className='relative text-xl right-[620px] top-[280px]'>{routerName.slice(1,routerName.length)}</h2>
+    
     <SVG
-        text={'http://localhost:3000/otabek'}
+        text={window.location.href || "unknown"}
         options={{
             type: 'image/jpeg',
             quality: 0.3,
